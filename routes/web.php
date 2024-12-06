@@ -3,36 +3,20 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Skill;
+use App\Http\Controllers\TestController;
 
 // test
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('welcome'); });
 
-Route::get('/test', function () {
-    return 123;
-});
+Route::get('/test/{id}', [TestController::class, 'show']);
 
-Route::get('/skills/{category}', function ($category) {
-    $title = "Навыки в категории $category";
-
-    $skills = Skill::where('category', $category)->get();
-
-    return view('skills')
-        ->with('title', $title)
-        ->with('skills', $skills);
-});
+Route::get('/skills/{category}', [TestController::class, 'renderPageSkillsInCategory']);
 
 // Это маршрут навыков
-Route::get('/skills', function () {
-    $title = 'Навыки';
+Route::get('/skills', [TestController::class, 'renderPageSkills']);
 
-    $skills = Skill::all();
+Route::get('/skills-json', [TestController::class, 'getAllSkills'])->middleware('auth');
 
-    return view('skills')
-        ->with('title', $title)
-        ->with('skills', $skills);
-});
 
 Route::get('/portfolio', function () {
     $title = 'Портфолио Terricon';
