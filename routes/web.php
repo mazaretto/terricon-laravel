@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Models\Skill;
 
+// test
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,6 +23,7 @@ Route::get('/skills/{category}', function ($category) {
         ->with('skills', $skills);
 });
 
+// Это маршрут навыков
 Route::get('/skills', function () {
     $title = 'Навыки';
 
