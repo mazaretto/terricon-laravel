@@ -10,8 +10,9 @@ class SkillController extends Controller
 {
     public function renderCreatePage ()
     {
+        $skills = Skill::all();
 
-        return view('createSkill');
+        return view('createSkill')->with('skills', $skills);
     }
 
     public function createSkill (Request $request) 
@@ -19,6 +20,17 @@ class SkillController extends Controller
         $data = $request->all();
 
         $skill = Skill::create($data);
+
+        return back();
+    }
+
+    public function deleteSkill ($id)
+    {
+        $skill = Skill::find($id);
+
+        if($skill) {
+            $skill->delete();
+        }
 
         return back();
     }

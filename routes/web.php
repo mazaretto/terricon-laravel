@@ -18,10 +18,16 @@ Route::get('/skills', [TestController::class, 'renderPageSkills']);
 
 Route::get('/skills-json', [TestController::class, 'getAllSkills'])->middleware('auth');
 
+// Страница создания скиллов
 Route::get('/create-skill', [SkillController::class, 'renderCreatePage'])
     ->middleware('auth')
     ->name('skillCreate');
 
+Route::get('/delete-skill/{id}', [SkillController::class, 'deleteSkill'])
+    ->middleware('auth')
+    ->name('skillDelete');
+
+// POST-запрос на создание скилла (НЕ СТРАНИЦА)
 Route::post('/create-skill', [SkillController::class, 'createSkill'])
     ->middleware('auth')
     ->name('skillCreate.post');
