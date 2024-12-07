@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Models\Skill;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\SkillController;
 
 // test
 Route::get('/', function () { return view('welcome'); });
@@ -17,6 +18,13 @@ Route::get('/skills', [TestController::class, 'renderPageSkills']);
 
 Route::get('/skills-json', [TestController::class, 'getAllSkills'])->middleware('auth');
 
+Route::get('/create-skill', [SkillController::class, 'renderCreatePage'])
+    ->middleware('auth')
+    ->name('skillCreate');
+
+Route::post('/create-skill', [SkillController::class, 'createSkill'])
+    ->middleware('auth')
+    ->name('skillCreate.post');
 
 Route::get('/portfolio', function () {
     $title = 'Портфолио Terricon';
