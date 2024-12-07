@@ -20,7 +20,7 @@
     @if($skills)
         <p class="mt-6 text-gray-500 dark:text-gray-400 leading-relaxed">
             @foreach($skills as $skill)
-                {{ $skill->name }} <a href="{{ route('deleteSkill', $skill->id) }}" style="color:red;">X</a><br/> 
+                {{ $skill->name }} <a href="{{ route('skillDelete', $skill->id) }}" style="color:red;">X</a><br/> 
             @endforeach
         </p>
     @endif
