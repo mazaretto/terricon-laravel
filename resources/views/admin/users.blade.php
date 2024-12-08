@@ -29,7 +29,11 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->role }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>Удалить</td>
+                                    <td>
+                                        <a href="{{ route('deleteUser', $user->id) }}" 
+                                            class="text-red-500" 
+                                            onclick="if(!confirm('Точно удалить?')) return false;">Удалить</a>
+                                    </td>
                                     <td>Редактировать</td>
                                 </tr>
                             @endforeach

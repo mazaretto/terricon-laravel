@@ -14,4 +14,15 @@ class AdminController extends Controller
 
         return view('admin.users')->with('users', $users);
     }
+
+    public function deleteUser ($id)
+    {
+        $user = User::find($id);
+
+        if($user) {
+            $user->delete();
+        }
+
+        return back();
+    }
 }
