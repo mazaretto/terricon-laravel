@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Skill;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\AdminController;
 
 // test
 Route::get('/', function () { return view('welcome'); });
@@ -23,6 +24,7 @@ Route::get('/create-skill', [SkillController::class, 'renderCreatePage'])
     ->middleware('auth')
     ->name('skillCreate');
 
+// Удаление скилла
 Route::get('/delete-skill/{id}', [SkillController::class, 'deleteSkill'])
     ->middleware('auth')
     ->name('skillDelete');
@@ -63,6 +65,17 @@ Route::get('/news', function () {
 
     return view('news')->with('title', $title);
 }); 
+
+// ADMIN
+Route::middleware([
+    'auth',
+    'roleChecker:admin'
+])->prefix('admin')->group(function () {
+    // /admin/users
+    Route::get('/users', [AdminController::class, 'renderUsers']);
+});
+
+// /ADMIN
 
 Route::middleware([
     'auth:sanctum',
