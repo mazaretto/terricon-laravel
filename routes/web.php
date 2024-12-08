@@ -74,7 +74,6 @@ Route::middleware([
     // /admin/users
     Route::get('/users', [AdminController::class, 'renderUsers']);
 });
-
 // /ADMIN
 
 Route::middleware([
