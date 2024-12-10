@@ -75,12 +75,27 @@ Route::middleware([
     Route::get('/users', [AdminController::class, 'renderUsers'])
         ->name('renderUsers');
 
+    /**
+     * Редактирование юзера
+     */
     Route::get('/users/{id}', [AdminController::class, 'renderEditUser'])
         ->name('renderEditUser');
 
     Route::post('/users/{id}', [AdminController::class, 'editUser'])
         ->name('editUser');
 
+    /**
+     * Добавление юзера
+     */
+    Route::get('/add-user', [AdminController::class, 'renderAddUser'])
+        ->name('renderAddUser');
+
+    Route::post('/add-user', [AdminController::class, 'addUser'])
+        ->name('addUser');
+
+    /**
+     * Удаление юзера
+     */
     Route::get('/delete-user/{id}', [AdminController::class, 'deleteUser'])
         ->name('deleteUser');
 });

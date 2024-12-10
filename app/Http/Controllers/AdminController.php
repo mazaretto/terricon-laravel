@@ -43,6 +43,16 @@ class AdminController extends Controller
         return redirect( route('renderEditUser', $user->id) );
     }
 
+    public function renderAddUser ()
+    {
+        return view('admin.users.add');
+    }
+
+    public function addUser ()
+    {
+        $data = request()->all();
+    }
+
     public function deleteUser ($id)
     {
         $user = User::find($id);
