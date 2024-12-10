@@ -34,7 +34,9 @@
                                             class="text-red-500" 
                                             onclick="if(!confirm('Точно удалить?')) return false;">Удалить</a>
                                     </td>
-                                    <td>Редактировать</td>
+                                    <td>
+                                        <a href="{{ route('renderEditUser', $user->id) }}">Редактировать</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

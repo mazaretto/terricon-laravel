@@ -19,6 +19,13 @@
                     <x-nav-link href="{{ route('skillCreate') }}" :active="request()->routeIs('skillCreate')">
                         {{ __('Скиллы') }}
                     </x-nav-link>
+
+                    <!-- Ссылка только для администратора -->
+                    @if(auth()->user()->role === 'admin')
+                        <x-nav-link href="{{ route('renderUsers') }}" :active="request()->routeIs('renderUsers')">
+                            {{ __('Пользователи') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
