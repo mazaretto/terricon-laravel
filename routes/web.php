@@ -78,6 +78,9 @@ Route::middleware([
     Route::get('/users/{id}', [AdminController::class, 'renderEditUser'])
         ->name('renderEditUser');
 
+    Route::post('/users/{id}', [AdminController::class, 'editUser'])
+        ->name('editUser');
+
     Route::get('/delete-user/{id}', [AdminController::class, 'deleteUser'])
         ->name('deleteUser');
 });

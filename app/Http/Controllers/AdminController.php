@@ -17,8 +17,30 @@ class AdminController extends Controller
 
     public function renderEditUser ($id)
     {
-        
-        return view('admin.users.edit');
+        $user = User::find($id);
+
+        if(!$user) {
+            return abort(404);
+        }
+
+        return view('admin.users.edit')->with('user', $user);
+    }
+
+    public function editUser ($id) 
+    {
+        $user = User::find($id);
+
+        if(!$user) {
+            return abort(404);
+        }
+
+        $user->name = request()->get('name', $user->name);
+        $user->email = request()->get('email', $user->email);
+        $user->role = request()->get('role', $user->role);
+
+        $user->save();
+
+        return redirect( route('renderEditUser', $user->id) );
     }
 
     public function deleteUser ($id)
