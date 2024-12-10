@@ -10,6 +10,10 @@ use App\Http\Controllers\AdminController;
 // test
 Route::get('/', function () { return view('welcome'); });
 
+Route::get('/pages/{name}', function ($name) {
+    return view("pages.$name");
+})->name('pages');
+
 Route::get('/test/{id}', [TestController::class, 'show']);
 
 Route::get('/skills/{category}', [TestController::class, 'renderPageSkillsInCategory']);
