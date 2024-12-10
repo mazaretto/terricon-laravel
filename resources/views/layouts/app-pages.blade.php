@@ -28,14 +28,14 @@
 		<div class="container_12">
 			<div class="grid_12">
 				<div class="wrapper">
-					<a href="about.html" class="logo">design.maniacs</a>
+					<a href="/" class="logo">TERRICON</a>
 					<nav>
 						<ul class="menu">
-							<li><a href="about.html">about</a></li>
-							<li class="active"><a href="{{ route('pages', 'works') }}">works</a></li>
-							<li><a href="clients.html">clients</a></li>
-							<li><a href="blog.html">blog</a></li>
-							<li><a href="contacts.html">contacts</a></li>
+							<li><a href="/">Главная</a></li>
+							<li class="active"><a href="{{ route('pages', 'works') }}">Портфолио</a></li>
+							<li><a href="{{ route('pages', 'clients') }}">Клиенты</a></li>
+							<li><a href="{{ route('pages', 'blog') }}">Блог</a></li>
+							<li><a href="{{ route('pages', 'contacts') }}">Контакты</a></li>
 						</ul>
 					</nav>
 				</div>
