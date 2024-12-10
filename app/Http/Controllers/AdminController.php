@@ -53,6 +53,17 @@ class AdminController extends Controller
     public function addUser ()
     {
         $data = request()->all();
+        $user = null;
+
+        if(isset($data['name']) && isset($data['email']) && isset($data['password'])) {
+            $user = User::create($data);
+        }
+
+        if($user) {
+            return redirect( route('renderUsers') );
+        } 
+
+        return abort(400);
     }
 
     // Удаление юзера
