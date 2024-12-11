@@ -23,7 +23,7 @@
 						<div class="wrapper">
 							<div class="grid_8 alpha">
 								<div class="grid-inner">
-								<h2 class="h-pad h-indent">Последние посты</h2>
+								<h2 class="h-pad h-indent">Последние посты ({{ count($posts) }})</h2>
 
 								@if(count($posts))
 									@foreach($posts as $post)
