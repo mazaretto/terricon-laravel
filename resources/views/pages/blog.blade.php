@@ -107,33 +107,6 @@ Monster. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
 										<li><a href="#">Donec accumsan malesuada orci</a></li>
 									</ul>
 								</div>
-								<div class="block">
-									<h2>Archives</h2>
-									<form id="search-form">
-										<fieldset>
-											<input type="text" value="Select a Month..." onFocus="if(this.value=='Select a Month...'){this.value=''}" onBlur="if(this.value==''){this.value='Select a Month...'}">	
-											<input type="image" src="/images/form-button.gif" alt="submit">
-										</fieldset>
-									</form>
-								</div>
-								<h2 class="h-pad">Community News</h2>
-								<ul class="news">
-									<li>
-										<figure><img src="/images/blog-img4.jpg" alt=""></figure>
-										<strong>Lorem ipsum dolor </strong>
-										<a href="#"> Sit amet, consectetur adipisicing elit sed.</a>
-									</li>
-									<li>
-										<figure><img src="/images/blog-img5.jpg" alt=""></figure>
-										<strong>Lorem ipsum dolor </strong>
-										<a href="#"> Sit amet, consectetur adipisicing elit sed.</a>
-									</li>
-									<li>
-										<figure><img src="/images/blog-img6.jpg" alt=""></figure>
-										<strong>Lorem ipsum dolor </strong>
-										<a href="#"> Sit amet, consectetur adipisicing elit sed.</a>
-									</li>
-								</ul>
 								<a href="#" class="button1">Join the Conversation</a>
 							</div>
 						</div>

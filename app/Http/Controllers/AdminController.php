@@ -25,6 +25,14 @@ class AdminController extends Controller
             case 'WORKS':
                 $data = [];
                 break;
+
+            case 'BLOG':
+                
+                break;
+
+            case 'CONTACTS':
+
+                break; 
         }
 
         return view("pages.$name")->with($key, $data);
