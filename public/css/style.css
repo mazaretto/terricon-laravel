@@ -118,14 +118,6 @@ header{
 	border-bottom: 3px solid #1c1e21;
 	padding-top: 25px;
 }
-	.logo {
-		display: block;
-		text-indent: -5000px;
-		width: 306px;
-		height:57px;
-		background: url('../images/logo.png') left top no-repeat;
-		float: left;
-	}
 		nav {
 			float: right;
 		}
@@ -469,6 +461,16 @@ footer {
 			display: inline-block;
 			margin-left: 5px;
 		}
+
+.badge {
+	padding: 5px 10px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	display: inline-block;
+	border-radius: 15px;
+	background: #ffa17f;
+
+}
 /*==========================================*/
     
 /* Project specifics =========================================================== */

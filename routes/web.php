@@ -7,12 +7,9 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\AdminController;
 
-// test
-Route::get('/', function () { return view('welcome'); });
+Route::get('/', [AdminController::class, 'renderWelcomePage'])->name('welcome');
 
-Route::get('/pages/{name}', function ($name) {
-    return view("pages.$name");
-})->name('pages');
+Route::get('/pages/{name}', [AdminController::class, 'renderPublicPages'])->name('pages');
 
 Route::get('/test/{id}', [TestController::class, 'show']);
 

@@ -5,9 +5,31 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\Skill;
 
 class AdminController extends Controller
 {
+    public function renderWelcomePage () 
+    {
+        $skills = Skill::all();
+
+        return view('welcome')->with('skills', $skills);
+    }
+
+    public function renderPublicPages ($name)
+    {
+        $data = [];
+        $key = 'data';
+
+        switch(strtoupper($name)) {
+            case 'WORKS':
+                $data = [];
+                break;
+        }
+
+        return view("pages.$name")->with($key, $data);
+    }
+
     public function renderUsers ()
     {
         $users = User::all();
