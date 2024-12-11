@@ -23,91 +23,52 @@ Monster. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
 						<div class="wrapper">
 							<div class="grid_8 alpha">
 								<div class="grid-inner">
-								<h2 class="h-pad h-indent">Recent Posts</h2>
-								<div class="block">
-									<div class="post">
-										<div class="wrapper">
-											<div class="info">
+								<h2 class="h-pad h-indent">Последние посты</h2>
+
+								@if($posts)
+									@foreach($posts as $post)
+										<div class="block">
+											<div class="post">
 												<div class="wrapper">
-													<div class="date">
-														<span>may</span><strong>15</strong>
+													<div class="info">
+														<div class="wrapper">
+															<div class="date">
+																<span>may</span><strong>15</strong>
+															</div>
+															<a href="#"><strong>{{ $post->name }}</strong></a><br>
+														Author: <a href="#"><strong>{{ $post->user_id }}</strong></a>
+														</div>
+														
 													</div>
-													<a href="#"><strong>Sed laoreet aliquam leo tellus dolor</strong></a><br>
-												Author: <a href="#"><strong>admin</strong></a>
+													<div class="comments">
+														No comments<span></span>
+													</div>
 												</div>
-												
-											</div>
-											<div class="comments">
-												No comments<span></span>
+												<figure><a href="#"><img src="{{ $post->preview }}" alt=""></a><figure>
+													<p>{{ $post->description }}</p>
+													<a href="#" class="button1">Подробнее</a>
 											</div>
 										</div>
-										<figure><a href="#"><img src="/images/blog-img1.jpg" alt=""></a><figure>
-											<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
-											<a href="#" class="button1">Read more</a><a href="#" class="button1">pOST cOMMENT</a>
-									</div>
-								</div>
-								<div class="block">
-									<div class="post">
-										<div class="wrapper">
-											<div class="info">
-												<div class="wrapper">
-													<div class="date">
-														<span>may</span><strong>15</strong>
-													</div>
-													<a href="#"><strong>Sed laoreet aliquam leo tellus dolor</strong></a><br>
-												Author: <a href="#"><strong>admin</strong></a>
-												</div>
-												
-											</div>
-											<div class="comments">
-												No comments<span></span>
-											</div>
-										</div>
-										<figure><a href="#"><img src="/images/blog-img2.jpg" alt=""></a><figure>
-											<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
-											<a href="#" class="button1">Read more</a><a href="#" class="button1">pOST cOMMENT</a>
-									</div>
-								</div>
-								<div class="block null">
-									<div class="post">
-										<div class="wrapper">
-											<div class="info">
-												<div class="wrapper">
-													<div class="date">
-														<span>may</span><strong>15</strong>
-													</div>
-													<a href="#"><strong>Sed laoreet aliquam leo tellus dolor</strong></a><br>
-												Author: <a href="#"><strong>admin</strong></a>
-												</div>
-												
-											</div>
-											<div class="comments">
-												No comments<span></span>
-											</div>
-										</div>
-										<figure><a href="#"><img src="/images/blog-img3.jpg" alt=""></a><figure>
-											<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
-											<a href="#" class="button1">Read more</a><a href="#" class="button1">pOST cOMMENT</a>
-									</div>
-								</div>
+									@endforeach
+								@endif
+								
 							</div>
 						</div>
 							<div class="grid_4 omega">
 								<div class="block block-pad">
-									<h2>Categories</h2>
-									<ul class="list">										
-										<li><a href="#">Praesent vestibulum molestie</a></li>
-										<li><a href="#">Aenean nonummy hendrerit</a></li>
-										<li><a href="#">Phasellus porta fusce suscipit varius</a></li>
-										<li><a href="#">Cum sociis penatibus et</a></li>
-										<li><a href="#">Magnis dis parturient montes</a></li>
-										<li><a href="#">Nascetur ridiculus mus duifusce</a></li>
-										<li><a href="#">Morbi nunc odio, gravida at, cursus nec</a></li>
-										<li><a href="#">Tristique orci ac sem duis</a></li>
-										<li><a href="#">Donec accumsan malesuada orci</a></li>
+									<h2>Категории</h2>
+									<ul class="list">	
+										@if($categories)
+											@foreach($categories as $category)
+												<li><a href="{{ route('pages', [
+													'name' => 'blog',
+													'category_id' => $category->id
+												]) }}">{{ $category->name }}</a></li>
+											@endforeach
+										@endif
 									</ul>
 								</div>
-								<a href="#" class="button1">Join the Conversation</a>
+								<a href="{{ route('pages', 'blog') }}" class="button1">Сбросить</a>
 							</div>
 						</div>
 					</div>

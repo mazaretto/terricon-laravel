@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Skill;
+use App\Models\Category;
+use App\Models\Post;
 
 class AdminController extends Controller
 {
@@ -19,7 +21,6 @@ class AdminController extends Controller
     public function renderPublicPages ($name)
     {
         $data = [];
-        $key = 'data';
 
         switch(strtoupper($name)) {
             case 'WORKS':
@@ -28,6 +29,16 @@ class AdminController extends Controller
 
             case 'BLOG':
                 
+                $category_id = request()->get('category_id', '');
+                $data['categories'] = Category::all();
+
+                if($category_id) {
+                    $data['posts'] = Post::where('category_id', $category_id)->get(); 
+                } else {
+                    $data['posts'] = Post::all();
+                }
+                
+
                 break;
 
             case 'CONTACTS':
@@ -35,7 +46,7 @@ class AdminController extends Controller
                 break; 
         }
 
-        return view("pages.$name")->with($key, $data);
+        return view("pages.$name", $data);
     }
 
     public function renderUsers ()
