@@ -1,5 +1,7 @@
 @extends('layouts.app-pages')
 
+@section('title', 'Портфолио')
+
 @section('content')
 
 	<div id="content">

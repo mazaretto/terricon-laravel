@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Страница</title>
+<title>@yield('title')</title>
 <meta charset="utf-8"><link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen">
     <link rel="stylesheet" href="/css/grid.css" type="text/css" media="screen">
@@ -31,8 +31,8 @@
 					<a href="/" class="logo">TERRICON</a>
 					<nav>
 						<ul class="menu">
-							<li><a href="/">Главная</a></li>
-							<li class="active"><a href="{{ route('pages', 'works') }}">Портфолио</a></li>
+							<li class="active"><a href="/">Главная</a></li>
+							<li><a href="{{ route('pages', 'works') }}">Портфолио</a></li>
 							<li><a href="{{ route('pages', 'clients') }}">Клиенты</a></li>
 							<li><a href="{{ route('pages', 'blog') }}">Блог</a></li>
 							<li><a href="{{ route('pages', 'contacts') }}">Контакты</a></li>
