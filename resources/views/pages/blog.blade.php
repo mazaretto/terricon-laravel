@@ -25,7 +25,7 @@ Monster. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
 								<div class="grid-inner">
 								<h2 class="h-pad h-indent">Последние посты</h2>
 
-								@if($posts)
+								@if(count($posts))
 									@foreach($posts as $post)
 										<div class="block">
 											<div class="post">
@@ -50,6 +50,8 @@ Monster. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
 											</div>
 										</div>
 									@endforeach
+								@else 
+									<p>Постов в данной категории не найдено.</p>
 								@endif
 								
 							</div>
