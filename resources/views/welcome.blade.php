@@ -49,12 +49,12 @@
                                     <figure class="img-indent"><img src="images/image1.jpg" alt=""></figure>
                                     Меня зовут Андрей, я веб-разработчик с опытом 7 лет, знаю следующие языки программирования: PHP, JavaScript, Golang
                                 </div>
-        <p class="pad">Мои скиллы: </p>
-        @if($skills)
-            @foreach($skills as $skill)
-                <span class="badge"><b>{{ $skill->name }}</b> ({{ $skill->lvl }}%)</span>
-            @endforeach
-        @endif
+                                <p class="pad">Мои скиллы: </p>
+                                @if($skills)
+                                    @foreach($skills as $skill)
+                                        <span class="badge"><b>{{ $skill->name }}</b> ({{ $skill->lvl }}%)</span>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                         <div class="grid_4">
