@@ -27,6 +27,21 @@ class AdminController extends Controller
                 $data = [];
                 break;
 
+            case 'POST':
+                $post_id = request()->get('post_id', '');
+
+                if($post_id) {
+                    $data['post'] = Post::find($post_id);
+
+                    if(!$data['post']) {
+                        return abort(404);
+                    }
+                } else {
+                    return abort(404);
+                }
+
+                break;
+
             case 'BLOG':
                 
                 $category_id = request()->get('category_id', '');

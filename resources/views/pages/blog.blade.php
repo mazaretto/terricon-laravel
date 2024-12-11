@@ -11,10 +11,10 @@
 				<div class="grid_12">
 					<div class="block">
 						<div class="info-block">
-							<a href="http://bayguzin.ru/assets/files/2014/08/biznes.zip" rel="nofollow" class="link">Click here</a> for more info about this free website template created by Template 
-Monster. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+							<a href="https://t.me/mazaretto" rel="nofollow" class="link">Закажите</a> разработку у меня и получите скидку 15% на все услуги до Нового года.
+                                *Только для новых клиентов.
 						</div>
-						<a href="http://bayguzin.ru/assets/files/2014/08/biznes.zip" class="button" rel="nofollow">Click here!</a>
+						<a href="https://t.me/mazaretto" class="button" rel="nofollow">Заказать</a>
 					</div>
 				</div>
 			</div>
@@ -35,8 +35,8 @@ Monster. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
 															<div class="date">
 																<span>may</span><strong>15</strong>
 															</div>
-															<a href="#"><strong>{{ $post->name }}</strong></a><br>
-														Author: <a href="#"><strong>{{ $post->user_id }}</strong></a>
+															<a href="{{ route('pages', ['name' => 'post', 'post_id' => $post->id]) }}"><strong>{{ $post->name }}</strong></a><br>
+														Author: <strong>{{ $post->user_id }}</strong>
 														</div>
 														
 													</div>
@@ -44,9 +44,9 @@ Monster. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
 														No comments<span></span>
 													</div>
 												</div>
-												<figure><a href="#"><img src="{{ $post->preview }}" alt=""></a><figure>
+												<figure><a href="{{ route('pages', ['name' => 'post', 'post_id' => $post->id]) }}"><img src="{{ $post->preview }}" alt=""></a><figure>
 													<p>{{ $post->description }}</p>
-													<a href="#" class="button1">Подробнее</a>
+													<a href="{{ route('pages', ['name' => 'post', 'post_id' => $post->id]) }}" class="button1">Подробнее</a>
 											</div>
 										</div>
 									@endforeach
