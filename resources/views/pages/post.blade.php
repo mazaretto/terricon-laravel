@@ -73,16 +73,14 @@
 												(<small>{{ $comment->created_at }}</small>)
 											</p>
 
-											<form action="" method="POST">
+											<form action="{{ route('editComment', $comment->id) }}" method="POST">
 												@csrf
 			
-												<input type="hidden" name="id" value="{{ $comment->id }}" />
-			
 												<input type="text" placeholder="Введите ваше имя" value="{{ $comment->author }}" name="author" />
-
 												<textarea name="description" placeholder="Описание">{{ $comment->description }}</textarea>
+
 												<button type="submit">Сохранить</button>
-												<a href="" style="color: red;">Удалить</a>
+												<a href="{{ route('deleteComment', $comment->id) }}" style="color: red;">Удалить</a>
 											</form>
 										@else 
 											<p>

@@ -104,6 +104,12 @@ Route::middleware([
      */
     Route::get('/delete-user/{id}', [AdminController::class, 'deleteUser'])
         ->name('deleteUser');
+
+    /**
+     * Система комментариев
+     */
+    Route::get('/delete-comment/{id}', [BlogController::class, 'deleteComment'])->name('deleteComment');
+    Route::post('/edit-comment/{id}', [BlogController::class, 'editComment'])->name('editComment');
 });
 // /ADMIN
 

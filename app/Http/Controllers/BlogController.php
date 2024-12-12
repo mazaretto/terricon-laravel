@@ -18,4 +18,32 @@ class BlogController extends Controller
 
         return back();
     }
+
+    public function deleteComment ($id)
+    {
+        $comment = Comment::find($id);
+
+        if($comment) {
+            $comment->delete();
+        }
+
+        return back();
+    }
+
+    public function editComment ($id)
+    {
+        $comment = Comment::find($id);
+
+        if($comment) {
+            $data = request()->all();
+
+            if(isset($data['author']) || isset($data['description'])) {
+                $comment->author = $data['author'];
+                $comment->description = $data['description'];
+                $comment->save();
+            }
+        } 
+
+        return back();
+    }
 }
