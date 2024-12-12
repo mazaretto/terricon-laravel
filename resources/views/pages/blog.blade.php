@@ -23,6 +23,19 @@
 						<div class="wrapper">
 							<div class="grid_8 alpha">
 								<div class="grid-inner">
+
+								<form action="{{ route('pages', 'blog') }}" method="GET">
+									@if(request()->get('category_id'))
+										<input type="hidden" name="category_id" value="{{ request()->get('category_id', '') }}">
+									@endif
+									<select onchange="this.parentNode.submit();" name="count_posts">
+										<option value="5">5 постов</option>
+										<option value="10">10 постов</option>
+										<option value="25">25 постов</option>
+										<option value="50">50 постов</option>
+									</select>
+								</form>
+
 								<h2 class="h-pad h-indent">Последние посты ({{ count($posts) }})</h2>
 
 								@if(count($posts))
@@ -55,6 +68,8 @@
 											</div>
 										</div>
 									@endforeach
+
+									{{ $posts->links() }}
 								@else 
 									<p>Постов в данной категории не найдено.</p>
 								@endif
