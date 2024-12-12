@@ -69,7 +69,7 @@
 										</div>
 									@endforeach
 
-									{{ $posts->links() }}
+									{{ $posts->appends($_GET)->links() }}
 								@else 
 									<p>Постов в данной категории не найдено.</p>
 								@endif
