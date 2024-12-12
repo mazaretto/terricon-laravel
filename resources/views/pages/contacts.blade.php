@@ -1,4 +1,5 @@
 @extends('layouts.app-pages')
+@section('title', 'Контакты')
 
 @section('content')
 
