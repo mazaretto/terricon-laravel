@@ -49,19 +49,50 @@
 
 								<hr/>
 								<h2>Комментарии</h2>
+								<p>Создайте свой первый комментарий!</p>
 								<form action="{{ route('addComment') }}" method="POST">
 									@csrf
 
 									<input type="hidden" name="post_id" value="{{ $post->id }}" />
-									<input type="text" placeholder="Введите ваше имя" name="author" />
+
+									@auth 
+										<input type="text" readonly placeholder="Введите ваше имя" value="{{ auth()->user()->name }} (#{{ auth()->id() }})" name="author" />
+									@else 
+										<input type="text" placeholder="Введите ваше имя" name="author" />
+									@endauth
+									
 									<textarea name="description" placeholder="Описание"></textarea>
 									<button type="submit">Отправить</button>
 								</form>
+
 								@foreach($post->getComments() as $comment)
-									<p>
-										<b>{{ $comment->author }}</b>: 
-										{{ $comment->description }} (<small>{{ $comment->created_at }}</small>)
-									</p>
+
+									@auth 
+										<p>
+											(<small>{{ $comment->created_at }}</small>)
+										</p>
+
+										<form action="" method="POST">
+											@csrf
+		
+											<input type="hidden" name="id" value="{{ $comment->id }}" />
+		
+											<input type="text" placeholder="Введите ваше имя" value="{{ $comment->author }}" name="author" />
+
+											<textarea name="description" placeholder="Описание">{{ $comment->description }}</textarea>
+											<button type="submit">Сохранить</button>
+											@if(auth()->user()->role === 'admin')
+												<a href="" style="color: red;">Удалить</a>
+											@endif
+										</form>
+									@else 
+										<p>
+											<b>{{ $comment->author }}</b>: 
+											{{ $comment->description }} (<small>{{ $comment->created_at }}</small>)
+										</p>
+									@endif
+
+									
 								@endforeach
 
                             </div>
