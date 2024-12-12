@@ -32,19 +32,30 @@
                                         <div class="info">
                                             <div class="wrapper">
                                                 <div class="date">
-                                                    <span>may</span><strong>15</strong>
+                                                    <span>{{ date('M', strtotime($post->created_at)); }}</span>
+													<strong>{{ date('d', strtotime($post->created_at)); }}</strong>
                                                 </div>
-                                            Author: <strong>{{ $post->user_id }}</strong>
+                                            Автор: <strong>{{ \App\Models\User::getName($post->user_id) }}</strong>
                                             </div>
                                             
                                         </div>
                                         <div class="comments">
-                                            No comments<span></span>
+                                            ({{ $post->getComments()->count(); }}) комментариев <span></span>
                                         </div>
                                     </div>
                                     <figure><a href="#"><img src="{{ $post->preview }}" alt=""></a><figure>
                                         <p>{{ $post->description }}</p>
                                 </div>
+
+								<hr/>
+								<h2>Комментарии</h2>
+								@foreach($post->getComments() as $comment)
+									<p>
+										<b>{{ $comment->author }}</b>: 
+										{{ $comment->description }} (<small>{{ $comment->created_at }}</small>)
+									</p>
+								@endforeach
+
                             </div>
 								
 							</div>

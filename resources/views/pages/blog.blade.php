@@ -33,18 +33,23 @@
 													<div class="info">
 														<div class="wrapper">
 															<div class="date">
-																<span>may</span><strong>15</strong>
+																<span>{{ date('M', strtotime($post->created_at)); }}</span>
+																<strong>{{ date('d', strtotime($post->created_at)); }}</strong>
 															</div>
 															<a href="{{ route('pages', ['name' => 'post', 'post_id' => $post->id]) }}"><strong>{{ $post->name }}</strong></a><br>
-														Author: <strong>{{ $post->user_id }}</strong>
+														Автор: <strong>{{ \App\Models\User::getName($post->user_id) }}</strong>
 														</div>
 														
 													</div>
 													<div class="comments">
-														No comments<span></span>
+														({{ $post->getComments()->count(); }}) комментариев<span></span>
 													</div>
 												</div>
-												<figure><a href="{{ route('pages', ['name' => 'post', 'post_id' => $post->id]) }}"><img src="{{ $post->preview }}" alt=""></a><figure>
+												<figure>
+													<a href="{{ route('pages', ['name' => 'post', 'post_id' => $post->id]) }}">
+														<img src="{{ $post->preview }}" alt="">
+													</a>
+												<figure>
 													<p>{{ $post->description }}</p>
 													<a href="{{ route('pages', ['name' => 'post', 'post_id' => $post->id]) }}" class="button1">Подробнее</a>
 											</div>
@@ -65,7 +70,7 @@
 												<li><a href="{{ route('pages', [
 													'name' => 'blog',
 													'category_id' => $category->id
-												]) }}">{{ $category->name }}</a></li>
+												]) }}">{{ $category->name }} ({{ \App\Models\Post::where('category_id', $category->id)->count(); }})</a></li>
 											@endforeach
 										@endif
 									</ul>
