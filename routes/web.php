@@ -6,12 +6,15 @@ use App\Models\Skill;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogController;
 
 Route::get('/', [AdminController::class, 'renderWelcomePage'])
     ->name('welcome');
 
 Route::get('/pages/{name}', [AdminController::class, 'renderPublicPages'])
     ->name('pages');
+
+Route::post('/add-comment', [BlogController::class, 'addComment'])->name('addComment');
 
 Route::get('/test/{id}', [TestController::class, 'show']);
 

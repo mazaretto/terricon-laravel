@@ -49,6 +49,14 @@
 
 								<hr/>
 								<h2>Комментарии</h2>
+								<form action="{{ route('addComment') }}" method="POST">
+									@csrf
+
+									<input type="hidden" name="post_id" value="{{ $post->id }}" />
+									<input type="text" placeholder="Введите ваше имя" name="author" />
+									<textarea name="description" placeholder="Описание"></textarea>
+									<button type="submit">Отправить</button>
+								</form>
 								@foreach($post->getComments() as $comment)
 									<p>
 										<b>{{ $comment->author }}</b>: 
