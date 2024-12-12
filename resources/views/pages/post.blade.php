@@ -68,23 +68,28 @@
 								@foreach($post->getComments() as $comment)
 
 									@auth 
-										<p>
-											(<small>{{ $comment->created_at }}</small>)
-										</p>
+										@if(auth()->user()->role === 'admin')
+											<p>
+												(<small>{{ $comment->created_at }}</small>)
+											</p>
 
-										<form action="" method="POST">
-											@csrf
-		
-											<input type="hidden" name="id" value="{{ $comment->id }}" />
-		
-											<input type="text" placeholder="Введите ваше имя" value="{{ $comment->author }}" name="author" />
+											<form action="" method="POST">
+												@csrf
+			
+												<input type="hidden" name="id" value="{{ $comment->id }}" />
+			
+												<input type="text" placeholder="Введите ваше имя" value="{{ $comment->author }}" name="author" />
 
-											<textarea name="description" placeholder="Описание">{{ $comment->description }}</textarea>
-											<button type="submit">Сохранить</button>
-											@if(auth()->user()->role === 'admin')
+												<textarea name="description" placeholder="Описание">{{ $comment->description }}</textarea>
+												<button type="submit">Сохранить</button>
 												<a href="" style="color: red;">Удалить</a>
-											@endif
-										</form>
+											</form>
+										@else 
+											<p>
+												<b>{{ $comment->author }}</b>: 
+												{{ $comment->description }} (<small>{{ $comment->created_at }}</small>)
+											</p>
+										@endif
 									@else 
 										<p>
 											<b>{{ $comment->author }}</b>: 
