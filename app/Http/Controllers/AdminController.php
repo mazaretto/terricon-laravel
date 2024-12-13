@@ -9,6 +9,7 @@ use App\Models\Skill;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Lead;
+use App\Models\Slider;
 
 class AdminController extends Controller
 {
@@ -166,6 +167,40 @@ class AdminController extends Controller
             $user->delete();
         }
 
+        return back();
+    }
+
+    /**
+     * Добавление слайдера
+     */
+    public function renderAddSliderPage () 
+    {
+        return view('admin.sliders.add');
+    }
+
+    public function addSlider (Request $request) 
+    {
+        $title = request()->get('title', 'Заголовок 1');
+        $image = $request->file('image');   
+        $description = request()->get('description', '');
+        $btn_name = request()->get('btn_name', 'Подробнее');
+        $btn_link = request()->get('btn_link', '');
+
+        $fileName = '';
+
+        if($image) {
+            $fileName = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('uploads', $fileName));
+        }
+
+        Slider::create([
+            'title' => $title,
+            'description' => $description,
+            'image' => $fileName,
+            'btn_name' => $btn_name,
+            'btn_link' => $btn_link
+        ]);
+        
         return back();
     }
 }

@@ -79,6 +79,16 @@ Route::middleware([
     'auth',
     'roleChecker:admin'
 ])->prefix('admin')->group(function () {
+
+    /**
+     * Слайдеры
+     */
+    Route::get('/add-slider', [AdminController::class, 'renderAddSliderPage'])
+        ->name('renderAddSliderPage');
+
+    Route::post('/add-slider', [AdminController::class, 'addSlider'])
+        ->name('addSlider');
+
     /**
      * Лиды
      */
