@@ -16,8 +16,9 @@ class AdminController extends Controller
     public function renderWelcomePage () 
     {
         $skills = Skill::all();
+        $sliders = Slider::all();
 
-        return view('welcome')->with('skills', $skills);
+        return view('welcome')->with('skills', $skills)->with('sliders', $sliders);
     }
 
     public function renderPublicPages ($name)

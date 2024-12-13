@@ -9,20 +9,15 @@
             <div class="container_12">
                 <div class="grid_12">
                 <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
-                    <div data-src="images/slide1.jpg">
-                        <div class="camera_caption fadeIn">
-                            <h2>Мои последние проекты</h2>
-                                Изучите мои последние работы по ссылке ниже, а также можно связаться со мной в Telegram: mazaretto
-                                <p><a href="{{ route('pages', 'works') }}" class="button">Изучить работы</a></p>
+                    @foreach($sliders as $slider)
+                        <div data-src="storage/{{ $slider->image }}">
+                            <div class="camera_caption fadeIn">
+                                <h2>{{ $slider->title }}</h2>
+                                    {{ $slider->description }}
+                                    <p><a href="{{ $slider->btn_link }}" class="button">{{ $slider->btn_name }}</a></p>
+                            </div>
                         </div>
-                    </div>
-                    <div data-src="images/slide2.jpg">
-                        <div class="camera_caption fadeIn">
-                            <h2>biz.Power</h2>
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat uis aute irure dolor reprehender.
-                                <p><a href="#" class="button">More Info</a></p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
