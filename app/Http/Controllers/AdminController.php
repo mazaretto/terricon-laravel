@@ -196,7 +196,7 @@ class AdminController extends Controller
             $imagePath = $slide->image;
             $slide->delete();
 
-            Storage::disk('public')->delete($imagePath);
+            Storage::disk('public')->delete($imagePath); // uploads/1734088351_продолжающий.jpg
         }
 
         return back();
