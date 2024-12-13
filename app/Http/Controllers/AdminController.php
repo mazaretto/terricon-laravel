@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Skill;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Lead;
 
 class AdminController extends Controller
 {
@@ -63,6 +64,24 @@ class AdminController extends Controller
         }
 
         return view("pages.$name", $data);
+    }
+
+    public function renderLeads ()
+    {
+        $leads = Lead::all();
+
+        return view('admin.leads')->with('leads', $leads);
+    }
+
+    public function deleteLead ($id)
+    {
+        $lead = Lead::find($id);
+
+        if($lead) {
+            $lead->delete();
+        }
+
+        return back();
     }
 
     public function renderUsers ()

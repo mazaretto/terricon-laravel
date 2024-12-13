@@ -77,6 +77,14 @@ Route::middleware([
     'auth',
     'roleChecker:admin'
 ])->prefix('admin')->group(function () {
+    /**
+     * Лиды
+     */
+    Route::get('/leads', [AdminController::class, 'renderLeads'])
+        ->name('renderLeads');
+    Route::delete('/leads/{id}', [AdminController::class, 'deleteLead'])
+        ->name('deleteLead');
+
     // /admin/users
     Route::get('/users', [AdminController::class, 'renderUsers'])
         ->name('renderUsers');
