@@ -73,6 +73,11 @@ class AdminController extends Controller
         return view('admin.leads')->with('leads', $leads);
     }
 
+    public function addLead ()
+    {
+        ///
+    }
+
     public function deleteLead ($id)
     {
         $lead = Lead::find($id);
