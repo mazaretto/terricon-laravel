@@ -182,15 +182,19 @@ class AdminController extends Controller
     public function addSlider (Request $request) 
     {
         $title = request()->get('title', 'Заголовок 1');
+        // Получаем файл с запроса
         $image = $request->file('image');   
         $description = request()->get('description', '');
         $btn_name = request()->get('btn_name', 'Подробнее');
         $btn_link = request()->get('btn_link', '');
 
+        // Создали переменную для пути файла
         $fileName = '';
 
         if($image) {
+            // Создаем уникальное имя для файла + поставляем его оригинальное имя и расширение
             $fileName = time() . '_' . $image->getClientOriginalName();
+            // Получаем итоговый путь к файлу (в данном случае будет uploads/1125151_файл.расширение)
             $fileName = $image->storeAs('uploads', $fileName, 'public');
         }
 
