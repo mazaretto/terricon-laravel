@@ -72,6 +72,8 @@ Route::get('/news', function () {
     return view('news')->with('title', $title);
 }); 
 
+Route::post('/leads', [AdminController::class, 'addLead'])
+    ->name('addLead');
 // ADMIN
 Route::middleware([
     'auth',
@@ -84,8 +86,6 @@ Route::middleware([
         ->name('renderLeads');
     Route::delete('/leads/{id}', [AdminController::class, 'deleteLead'])
         ->name('deleteLead');
-    Route::post('/leads', [AdminController::class, 'addLead'])
-        ->name('addLead');
 
     // /admin/users
     Route::get('/users', [AdminController::class, 'renderUsers'])

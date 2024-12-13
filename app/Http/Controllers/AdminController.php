@@ -75,7 +75,17 @@ class AdminController extends Controller
 
     public function addLead ()
     {
-        ///
+        $data = request()->all();
+
+        if(isset($data['name']) && isset($data['email'])) {
+            Lead::create($data);
+
+            return redirect( route('pages', 
+                ['name' => 'contacts', 'createdLead' => 1]) );
+        }
+
+        return redirect( route('pages', 
+                ['name' => 'contacts']) );
     }
 
     public function deleteLead ($id)

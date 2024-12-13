@@ -34,6 +34,11 @@
 							<textarea name="description" placeholder="Комментарий..."></textarea>
 							<a href="#" class="button1" onClick="document.getElementById('contact-form').reset()">Очистить</a>
 							<a href="#" class="button1" onClick="document.getElementById('contact-form').submit()">Отправить</a>
+							@isset($_GET['createdLead'])
+								<p>
+									<b>Заявка успешно создана.</b>
+								</p>
+							@endisset
 						</fieldset>
 					</form>
 				</div>
