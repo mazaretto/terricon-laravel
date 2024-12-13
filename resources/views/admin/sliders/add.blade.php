@@ -17,9 +17,23 @@
                             <div class="grid grid-cols-6 gap-6">
                                 
                                 <div class="col-span-6 sm:col-span-4">
-                                    <x-label for="title" value="Title" />
-                                    <x-input name="title" id="title" type="text" placeholder="Title" class="mt-1 block w-full" wire:model="state.title" required />
-                                    <x-input-error for="title" class="mt-2" />
+                                    <x-label for="title" value="Заголовок" />
+                                    <x-input name="title" id="title" type="text" placeholder="Заголовок" class="mt-1 block w-full" wire:model="state.title" required />
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-4">
+                                    <x-label for="description" value="Описание" />
+                                    <x-input name="description" id="description" type="text" placeholder="Описание" class="mt-1 block w-full" wire:model="state.description" required />
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-4">
+                                    <x-label for="btn_name" value="Название кнопки" />
+                                    <x-input name="btn_name" id="btn_name" type="text" placeholder="Название кнопки" class="mt-1 block w-full" wire:model="state.btn_name" required />
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-4">
+                                    <x-label for="btn_link" value="Ссылка для кнопки" />
+                                    <x-input name="btn_link" id="btn_link" type="text" placeholder="Ссылка для кнопки" class="mt-1 block w-full" wire:model="state.btn_link" required />
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-4">

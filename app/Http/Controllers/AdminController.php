@@ -190,7 +190,7 @@ class AdminController extends Controller
 
         if($image) {
             $fileName = time() . '_' . $image->getClientOriginalName();
-            $image->move(public_path('uploads', $fileName));
+            $fileName = $image->storeAs('uploads', $fileName, 'public');
         }
 
         Slider::create([
