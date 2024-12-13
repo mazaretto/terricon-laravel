@@ -174,9 +174,30 @@ class AdminController extends Controller
     /**
      * Добавление слайдера
      */
+    public function renderSlidersPage ()
+    {
+        $sliders = Slider::all();
+
+        return view('admin.sliders')->with('sliders', $sliders);
+    }
+
     public function renderAddSliderPage () 
     {
         return view('admin.sliders.add');
+    }
+
+    public function deleteSlide ($id)
+    {
+        $slide = Slider::find($id);
+
+        if($slide) {
+            $imagePath = $slide->image;
+            $slide->delete();
+
+            
+        }
+
+        return back();
     }
 
     public function addSlider (Request $request) 

@@ -83,6 +83,12 @@ Route::middleware([
     /**
      * Слайдеры
      */
+    Route::get('/sliders', [AdminController::class, 'renderSlidersPage'])
+        ->name('renderSlidersPage');
+
+    Route::delete('/sliders/{id}', [AdminController::class, 'deleteSlide'])
+        ->name('deleteSlide');
+
     Route::get('/add-slider', [AdminController::class, 'renderAddSliderPage'])
         ->name('renderAddSliderPage');
 

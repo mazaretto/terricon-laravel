@@ -29,6 +29,10 @@
                         <x-nav-link href="{{ route('renderLeads') }}" :active="request()->routeIs('renderLeads')">
                             {{ __('Лиды') }}
                         </x-nav-link>
+
+                        <x-nav-link href="{{ route('renderSlidersPage') }}" :active="request()->routeIs('renderSlidersPage')">
+                            {{ __('Слайды') }}
+                        </x-nav-link>
                     @endif
                 </div>
             </div>
