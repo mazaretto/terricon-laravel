@@ -11,6 +11,8 @@ use App\Models\Post;
 use App\Models\Lead;
 use App\Models\Slider;
 
+use Illuminate\Support\Facades\Storage;
+
 class AdminController extends Controller
 {
     public function renderWelcomePage () 
@@ -194,7 +196,7 @@ class AdminController extends Controller
             $imagePath = $slide->image;
             $slide->delete();
 
-            
+            Storage::disk('public')->delete($imagePath);
         }
 
         return back();
@@ -227,6 +229,6 @@ class AdminController extends Controller
             'btn_link' => $btn_link
         ]);
         
-        return back();
+        return redirect( route('renderSlidersPage') );
     }
 }
