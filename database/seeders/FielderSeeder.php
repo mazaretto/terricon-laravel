@@ -21,5 +21,38 @@ class FielderSeeder extends Seeder
             ['field_name' => 'about_me', 'field_value' => 'Меня зовут Андрей, я веб-разработчик с опытом 7 лет, знаю следующие языки программирования: PHP, JavaScript, Golang'],
             ['field_name' => 'deviz', 'field_value' => 'Делай хорошо, плохо не делай']
         ]);
+
+        DB::table('categories')->insert([
+            ['name' => 'IT-технологии'],
+            ['name' => 'Laravel'],
+            ['name' => 'Жизнь'],
+            ['name' => 'Спорт'],
+        ]);
+
+        DB::table('posts')->insert([
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 2],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 2],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 3],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 2],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 3],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 3],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 3],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 3],
+            ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1]
+        ]);
     }
 }
