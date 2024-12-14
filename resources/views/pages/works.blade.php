@@ -11,10 +11,9 @@
 					<div class="grid_12">
 						<div class="block">
 							<div class="info-block">
-							<a href="http://bayguzin.ru/assets/files/2014/08/biznes.zip" class="link">Click here</a> for more info about this free website template created by Template 
-	Monster. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+								{{ \App\Models\Fielder::ff('slogan') }}
 							</div>
-							<a href="http://bayguzin.ru/assets/files/2014/08/biznes.zip" class="button" rel="nofollow">Click here!</a>
+							<a href="https://t.me/mazaretto" class="button" rel="nofollow">Заказать</a>
 						</div>
 					</div>
 				</div>

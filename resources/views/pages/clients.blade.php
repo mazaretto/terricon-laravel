@@ -11,8 +11,7 @@
 				<div class="grid_12">
 					<div class="block">
 						<div class="info-block">
-							<a href="https://t.me/mazaretto" rel="nofollow" class="link">Закажите</a> разработку у меня и получите скидку 15% на все услуги до Нового года.
-                                *Только для новых клиентов.
+							{{ \App\Models\Fielder::ff('slogan') }}
 						</div>
 						<a href="https://t.me/mazaretto" class="button" rel="nofollow">Заказать</a>
 					</div>
