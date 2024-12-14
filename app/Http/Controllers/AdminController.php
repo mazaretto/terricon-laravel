@@ -281,13 +281,34 @@ class AdminController extends Controller
         return view('admin.gallery')->with('gallery', $gallery);
     }
 
-    public function addGallery ()
+    public function addGallery (Request $request)
     {
+        $images = $request->file('image');
 
+        foreach($images as $image) {
+            // Создаем уникальное имя для файла + поставляем его оригинальное имя и расширение
+            $fileName = time() . '_' . $image->getClientOriginalName();
+            // Получаем итоговый путь к файлу (в данном случае будет uploads/1125151_файл.расширение)
+            $fileName = $image->storeAs('gallery', $fileName, 'public');
+            
+            Gallery::create([ 'image' => $fileName ]);
+        }
+
+        return redirect( route('renderGalleryPage') );
     }
 
-    public function deleteGallery ()
+    public function deleteGallery ($id)
     {
+        $gallery = Gallery::find($id);
 
+        if($gallery) {
+            $image = $gallery->image;
+            $gallery->delete();
+            Storage::disk('public')->delete($gallery->image);
+
+            return redirect( route('renderGalleryPage') );
+        }
+
+        return abort(404);
     }
 }
