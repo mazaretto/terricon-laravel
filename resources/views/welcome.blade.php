@@ -28,8 +28,7 @@
                     <div class="grid_12">
                         <div class="block">
                             <div class="info-block">
-                                <a href="https://t.me/mazaretto" rel="nofollow" class="link">Закажите</a> разработку у меня и получите скидку 15% на все услуги до Нового года.
-                                *Только для новых клиентов.
+                                {{ \App\Models\Fielder::ff('slogan') }}
                             </div>
                             <a href="https://t.me/mazaretto" class="button" rel="nofollow">Заказать</a>
                         </div>
@@ -42,7 +41,7 @@
                             <h2>Привет!</h2>
                                 <div class="wrapper">
                                     <figure class="img-indent"><img src="images/image1.jpg" alt=""></figure>
-                                    Меня зовут Андрей, я веб-разработчик с опытом 7 лет, знаю следующие языки программирования: PHP, JavaScript, Golang
+                                    {{ \App\Models\Fielder::ff('about_me') }}
                                 </div>
                                 <p class="pad">Мои скиллы: </p>
                                 @if($skills)
@@ -55,7 +54,7 @@
                         <div class="grid_4">
                             <h2>Мой девиз</h2>
                             <div class="testimonial-block">
-                                <em>Делай хорошо, плохо не делай</em><p><strong>— Андрей Тищенко</strong></p>
+                                {{ \App\Models\Fielder::ff('deviz') }}
                             </div>
                         </div>
                     </div>
