@@ -25,21 +25,6 @@ Route::get('/skills', [TestController::class, 'renderPageSkills']);
 
 Route::get('/skills-json', [TestController::class, 'getAllSkills'])->middleware('auth');
 
-// Страница создания скиллов
-Route::get('/create-skill', [SkillController::class, 'renderCreatePage'])
-    ->middleware('auth')
-    ->name('skillCreate');
-
-// Удаление скилла
-Route::get('/delete-skill/{id}', [SkillController::class, 'deleteSkill'])
-    ->middleware('auth')
-    ->name('skillDelete');
-
-// POST-запрос на создание скилла (НЕ СТРАНИЦА)
-Route::post('/create-skill', [SkillController::class, 'createSkill'])
-    ->middleware('auth')
-    ->name('skillCreate.post');
-
 Route::get('/portfolio', function () {
     $title = 'Портфолио Terricon';
 
@@ -100,6 +85,21 @@ Route::middleware([
 
     Route::post('/add-slider', [AdminController::class, 'addSlider'])
         ->name('addSlider');
+
+    /**
+     * Скиллы
+     */
+    // Страница создания скиллов
+    Route::get('/create-skill', [SkillController::class, 'renderCreatePage'])
+        ->name('skillCreate');
+
+    // Удаление скилла
+    Route::get('/delete-skill/{id}', [SkillController::class, 'deleteSkill'])
+        ->name('skillDelete');
+
+    // POST-запрос на создание скилла (НЕ СТРАНИЦА)
+    Route::post('/create-skill', [SkillController::class, 'createSkill'])
+        ->name('skillCreate.post');
 
     /**
      * Лиды

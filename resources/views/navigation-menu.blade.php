@@ -13,15 +13,15 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-
-                    <x-nav-link href="{{ route('skillCreate') }}" :active="request()->routeIs('skillCreate')">
-                        {{ __('Скиллы') }}
+                        {{ __('Дашборд') }}
                     </x-nav-link>
 
                     <!-- Ссылка только для администратора -->
                     @if(auth()->user()->role === 'admin')
+                        <x-nav-link href="{{ route('skillCreate') }}" :active="request()->routeIs('skillCreate')">
+                            {{ __('Скиллы') }}
+                        </x-nav-link>
+
                         <x-nav-link href="{{ route('renderUsers') }}" :active="request()->routeIs('renderUsers')">
                             {{ __('Пользователи') }}
                         </x-nav-link>

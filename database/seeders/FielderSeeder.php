@@ -29,6 +29,12 @@ class FielderSeeder extends Seeder
             ['name' => 'Спорт'],
         ]);
 
+        DB::table('skills')->insert([
+            ['name' => 'PHP', 'lvl' => 90, 'category' => 'Backend'],
+            ['name' => 'JavaScript', 'lvl' => 80, 'category' => 'Frontend'],
+            ['name' => 'NodeJS', 'lvl' => 75, 'category' => 'Backend'],
+        ]);
+
         DB::table('posts')->insert([
             ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 1],
             ['name' => 'Это мой первый пост', 'description' => 'Тестовое описание', 'preview' => '/images/blog-img1.jpg', 'user_id' => 1, 'category_id' => 2],
