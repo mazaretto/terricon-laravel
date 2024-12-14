@@ -70,6 +70,18 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="wrapper">
+                    <div class="grid_12">
+                        <h2 class="h-pad">Галерея</h2>
+                        <ul class="clients-list">
+                            @foreach($gallery as $galleryItem)
+                                <li><a href="/storage/{{ $galleryItem->image }}" data-fancybox="gallery" class="galleryItem"><img src="/storage/{{ $galleryItem->image }}" width="150" height="150" alt=""></a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+
             </div>			
         </div>
     </div>

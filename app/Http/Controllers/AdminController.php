@@ -20,8 +20,9 @@ class AdminController extends Controller
     {
         $skills = Skill::all();
         $sliders = Slider::all();
+        $gallery = Gallery::all();
 
-        return view('welcome')->with('skills', $skills)->with('sliders', $sliders);
+        return view('welcome')->with('skills', $skills)->with('sliders', $sliders)->with('gallery', $gallery);
     }
 
     public function renderPublicPages ($name)

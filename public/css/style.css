@@ -28,6 +28,9 @@ body {
 }
 html, body { height:100%;}
 
+.galleryItem img {
+	margin-bottom: 15px;
+}
 
 p {padding-top:16px;}
 
