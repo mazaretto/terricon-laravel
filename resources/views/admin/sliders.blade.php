@@ -44,6 +44,7 @@
                                             @method('DELETE')
                                             <button class="text-red-500" type="submit">Удалить</button>
                                         </form>
+                                        <a href="{{ route('renderEditSlide', $slider->id) }}">Редактировать</a>
                                     </td>
                                 </tr>
                             @endforeach

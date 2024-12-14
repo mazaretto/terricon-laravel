@@ -86,6 +86,12 @@ Route::middleware([
     Route::get('/sliders', [AdminController::class, 'renderSlidersPage'])
         ->name('renderSlidersPage');
 
+    Route::get('/sliders/{id}', [AdminController::class, 'renderEditSlide'])
+        ->name('renderEditSlide');
+
+    Route::post('/sliders/{id}', [AdminController::class, 'editSlide'])
+        ->name('editSlide');
+
     Route::delete('/sliders/{id}', [AdminController::class, 'deleteSlide'])
         ->name('deleteSlide');
 

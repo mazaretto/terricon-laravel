@@ -202,6 +202,44 @@ class AdminController extends Controller
         return back();
     }
 
+    public function renderEditSlide ($id)
+    {
+        $slide = Slider::find($id);
+
+        return view('admin.sliders.edit')->with('slide', $slide);
+    }
+
+    public function editSlide (Request $request)
+    {
+        $id = $request->id;
+        $slide = Slider::find($id);
+
+        if($slide) {
+            $slide->title = request()->get('title', $slide->title);   
+            $slide->description = request()->get('description', '');
+            $slide->btn_name = request()->get('btn_name', $slide->btn_name);
+            $slide->btn_link = request()->get('btn_link', '');
+            $image = $request->file('image');
+
+            if($image) {
+                Storage::disk('public')->delete($slide->image);
+
+                // Создаем уникальное имя для файла + поставляем его оригинальное имя и расширение
+                $fileName = time() . '_' . $image->getClientOriginalName();
+                // Получаем итоговый путь к файлу (в данном случае будет uploads/1125151_файл.расширение)
+                $fileName = $image->storeAs('uploads', $fileName, 'public');
+
+                $slide->image = $fileName;
+            }
+
+            $slide->save();
+
+            return redirect( route('renderSlidersPage') );
+        }
+        
+        return abort(404);
+    }
+
     public function addSlider (Request $request) 
     {
         $title = request()->get('title', 'Заголовок 1');
