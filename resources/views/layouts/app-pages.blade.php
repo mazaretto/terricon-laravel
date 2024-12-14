@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>@yield('title')</title>
-<meta charset="utf-8"><link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic' rel='stylesheet' type='text/css'>
+    <title>@yield('title')</title>
+    <meta charset="utf-8"><link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic' rel='stylesheet' type='text/css'>
+
+    <meta name="og:title" content="@yield('title')" />
+
     <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen">
     <link rel="stylesheet" href="/css/grid.css" type="text/css" media="screen">
     <link rel="stylesheet" href="/css/camera.css" type="text/css" media="screen">

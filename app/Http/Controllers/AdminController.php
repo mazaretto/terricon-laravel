@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Lead;
 use App\Models\Slider;
+use App\Models\Gallery;
 
 use Illuminate\Support\Facades\Storage;
 
@@ -268,5 +269,25 @@ class AdminController extends Controller
         ]);
         
         return redirect( route('renderSlidersPage') );
+    }
+
+    /**
+     * Галерея
+     */
+    public function renderGalleryPage ()
+    {
+        $gallery = Gallery::all();
+
+        return view('admin.gallery')->with('gallery', $gallery);
+    }
+
+    public function addGallery ()
+    {
+
+    }
+
+    public function deleteGallery ()
+    {
+
     }
 }

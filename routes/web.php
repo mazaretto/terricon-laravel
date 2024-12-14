@@ -87,6 +87,18 @@ Route::middleware([
         ->name('addSlider');
 
     /**
+     * Галерея
+     */
+    Route::get('/gallery', [AdminController::class, 'renderGalleryPage'])
+        ->name('renderGalleryPage');
+
+    Route::post('/gallery', [AdminController::class, 'addGallery'])
+        ->name('addGallery');
+
+    Route::delete('/gallery/{id}', [AdminController::class, 'deleteGallery'])
+        ->name('deleteGallery');
+
+    /**
      * Скиллы
      */
     // Страница создания скиллов

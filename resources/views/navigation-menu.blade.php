@@ -33,6 +33,10 @@
                         <x-nav-link href="{{ route('renderSlidersPage') }}" :active="request()->routeIs('renderSlidersPage')">
                             {{ __('Слайды') }}
                         </x-nav-link>
+
+                        <x-nav-link href="{{ route('renderGalleryPage') }}" :active="request()->routeIs('renderGalleryPage')">
+                            {{ __('Галерея') }}
+                        </x-nav-link>
                     @endif
                 </div>
             </div>
